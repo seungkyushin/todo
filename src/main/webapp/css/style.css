@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/****** Main Page CSS*********/
+.header{
+    transform-origin:20%;
+    font-size: 30px;
+    transform: rotateZ(-35deg); 
+}
+
+.newtodobutton{
+    border: 2px solid #58C9B9;
+    background-color:  #58C9B9;
+    width: 180px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    float: right;
+}
+
+
+table{
+    width: 70%;
+    position: relative;
+    left: 15%;
+    border-spacing: 10px;
+}
+th{
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #519D9E;
+    background-color: #519D9E;
+    color:white;
+    
+}
+td{
+    width: 30%;
+    padding: 10px;
+     border: 1px solid rgb(185, 211, 211);
+   background-color: rgb(185, 211, 211);
+   
+}
+
+p > b {
+    color: rgb(48, 88, 88);
+    font-size: 25px;    
+}
+
+
+section{
+    display: block;
+    clear: both;
+
+}
+
+.registerpage header{
+    text-align: center;
+    font-size: 25px;
+}
+.registerpage article{
+    position: relative;
+    left:35%;
+    width:30%;
+}
+.arrowbutton{
+    padding: 5;
+    width: 25px;
+    height: 25px;
+}
+/****** Main Page CSS*********/
+
+
+
+/****** SUB Page CSS*********/
+p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+#work{
+    font-size: 150%;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+
+#who{
+    font-size: 150%;
+    width: 30%;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.button{
+    border: 2px solid #58C9B9;
+    background-color:  #58C9B9;
+    width: 25%;
+    height: 30px;
+    text-align: center;
+    color: white;
+   
+}
+.next{
+    margin-right: 20%;
+    border: 1px solid black;
+    width: 25%;
+    height: 30px;
+    text-align: center;
+    background-color: white;
+  
+}
+/****** SUB Page CSS*********/
