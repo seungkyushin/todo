@@ -90,7 +90,15 @@
         </article>
     </section>
     
-<script src="/Todo/javascript/script.js"></script>
+<script>
+
+var newtodobtn = document.querySelector(".newtodobutton");
+function move(){}
+newtodobtn.addEventListener("click",function(e){
+	location.href="/Todo/todoForm.jsp";
+},false);
+
+</script>
 
 
 </body>
