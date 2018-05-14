@@ -49,7 +49,7 @@ public class TodoDao {
 		
 		ArrayList<TodoDto> Listdate = new ArrayList<TodoDto>(); 
 		ResultSet rs;
-		String sql = "SELECT tile,name,type,regdate FROM todo";
+		String sql = "SELECT id,title,name,sequence,type,regdate FROM todo ORDER BY regdate desc";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -62,10 +62,12 @@ public class TodoDao {
 							
 							TodoDto dto = new TodoDto();
 							
-							dto.setTodoTitle(rs.getString(1));
-							dto.setTodoName(rs.getString(2));
-							dto.setTodoType(rs.getString(3));
-							dto.setTodoRegdate(rs.getString(4));
+							dto.setTodoId(rs.getInt(1));
+							dto.setTodoTitle(rs.getString(2));
+							dto.setTodoName(rs.getString(3));
+							dto.setTodoSequence(rs.getInt(4));
+							dto.setTodoType(rs.getString(5));
+							dto.setTodoRegdate(rs.getString(6));
 							
 							Listdate.add(dto);
 						}
@@ -84,7 +86,7 @@ public class TodoDao {
 		return Listdate;
 		
 	}
-	public int updateTodo() {
+	public int updateTodo(String type, int id) {
 		int result = 0;
 		String sql = "UPDATE todo set type=? where id=?";
 		
@@ -95,8 +97,8 @@ public class TodoDao {
 					PreparedStatement ps = JDBCConnection.prepareStatement(sql);
 					){
 								
-				ps.setString(1, "test");
-				ps.setInt(2, 1);
+				ps.setString(1, type);
+				ps.setInt(2, id);
 					
 				result = ps.executeUpdate();
 				

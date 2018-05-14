@@ -5,7 +5,7 @@ public class TodoDto {
 	long todoId;
 	String todoTitle;
 	String todoName;
-	int todoSequence; //< 0 : todo, 1:doing, 2:done
+	int todoSequence; 
 	String todoType;
 	String todoRegdate;
 	

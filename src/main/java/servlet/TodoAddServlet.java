@@ -28,11 +28,8 @@ public class TodoAddServlet extends HttpServlet {
     }
 
     protected void doProcess(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    	
     	res.setCharacterEncoding("UTF-8");
     	res.setContentType("text/html");
-    	
-    	System.out.println("도착");
     	
     	try
     	{

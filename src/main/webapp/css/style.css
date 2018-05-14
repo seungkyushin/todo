@@ -18,9 +18,10 @@
 
 
 table{
-    width: 70%;
+    float: left;
+    width: 26%;
     position: relative;
-    left: 15%;
+    left: 11%;
     border-spacing: 10px;
 }
 th{
@@ -60,10 +61,15 @@ section{
     left:35%;
     width:30%;
 }
-.arrowbutton{
+button{
+ 	float: right;
     padding: 5;
     width: 25px;
     height: 25px;
+}
+.subtitle{
+	color: rgb(48, 88, 88);
+    font-size: 15px;    
 }
 /****** Main Page CSS*********/
 
@@ -76,7 +82,7 @@ p{
     font-size: 15px;
 }
 
-#work{
+#title{
     font-size: 150%;
     width: 100%;
     height: 40px;
@@ -84,7 +90,7 @@ p{
 }
 
 
-#who{
+#name{
     font-size: 150%;
     width: 30%;
     height: 40px;
