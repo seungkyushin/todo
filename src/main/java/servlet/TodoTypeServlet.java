@@ -10,12 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.TodoDao;
-import dto.TodoDto;
 
 /**
  * Servlet implementation class TodoTypeServlet
  */
-@WebServlet("/type")
+@WebServlet("/todotype")
 public class TodoTypeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,7 +44,7 @@ protected void doProcess(HttpServletRequest req, HttpServletResponse res) throws
     		dao.updateTodo("DONE",id);
     	}
     	
-    	RequestDispatcher rd = req.getRequestDispatcher("/listupdate");
+    	RequestDispatcher rd = req.getRequestDispatcher("/main");
 		rd.forward(req, res);
 	}
     

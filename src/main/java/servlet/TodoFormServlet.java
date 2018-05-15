@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,10 +29,12 @@ public class TodoFormServlet extends HttpServlet {
     	res.setCharacterEncoding("UTF-8");
     	res.setContentType("text/html");
     	
-    	System.out.println("test");
-    	res.sendRedirect("/Todo/todoForm.jsp");
+    	System.out.println("/todoform");
+
+    	//res.sendRedirect("/Todo/todoForm.jsp");
+    	RequestDispatcher rd = req.getRequestDispatcher("/todoForm.jsp");
+		rd.forward(req, res);
  
-    	
 	}
     
 	/**

@@ -18,7 +18,10 @@
 
  <header>
         <div class="header">내가 해야 할일</div>
-        <input type="button" class="newtodobutton" value="새로운 TODO 등록">
+        <form method="POST" action="/Todo/todoform">
+        <input type="submit" class="newtodobutton" value="새로운 TODO 등록">
+        </form>
+        
     </header>
 
 
@@ -37,22 +40,8 @@
     
 <script>
 window.onload = function(){
-	ajax("http://localhost:8080/Todo/listupdate","GET", "");
-
-
+	ajax("http://localhost:8080/Todo/main","GET", "");
 };
-
-//< 리스트 폼으로 이동
-var newtodobtn = document.querySelector(".newtodobutton");
-newtodobtn.addEventListener("click",function(e){
-	 var xhr = new XMLHttpRequest();
- 	xhr.open("GET", "http://localhost:8080/Todo/todoform");
-	 xhr.send();
-	 
-},false);
-
-
-
 
 //< 리스트 갱신
 function ajax(url,method,data) {
@@ -119,7 +108,7 @@ function ajax(url,method,data) {
 				arrowbtnlist[index].addEventListener("click",function(e){
 				var data = "id=" + this.getAttribute('data-view') + "&";
 				data += "type=" + this.getAttribute('data-type');
-				ajax("http://localhost:8080/Todo/type","POST", data);
+				ajax("http://localhost:8080/Todo/todotype","POST", data);
 				},false);
 			 } 
 		

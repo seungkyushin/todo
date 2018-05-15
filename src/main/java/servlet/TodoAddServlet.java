@@ -45,8 +45,7 @@ public class TodoAddServlet extends HttpServlet {
         	dto.setTodoSequence(sequence);
         	
         	TodoDao dao = new TodoDao();
-        	
-        	if( dao.addTodo(dto) == TodoDao.SUCCESS )
+           	if( dao.addTodo(dto) == TodoDao.SUCCESS )
         	{
         		req.setAttribute("result", TodoDao.SUCCESS);
         		RequestDispatcher rd = req.getRequestDispatcher("/main.jsp");
@@ -56,7 +55,7 @@ public class TodoAddServlet extends HttpServlet {
         	else
         	{
         		req.setAttribute("result", TodoDao.FAILED);
-        		RequestDispatcher rd = req.getRequestDispatcher("/todoFrom.jsp");
+        		RequestDispatcher rd = req.getRequestDispatcher("/todoForm.jsp");
         		rd.forward(req, res);
         		
         	}

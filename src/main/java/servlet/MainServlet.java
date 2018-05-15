@@ -3,25 +3,19 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
 import com.google.gson.Gson;
-
 import dao.TodoDao;
 import dto.TodoDto;
 
 /**
  * Servlet implementation class MainServlet
  */
-@WebServlet("/listupdate")
+@WebServlet("/main")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,12 +30,13 @@ public class MainServlet extends HttpServlet {
     	ArrayList<TodoDto> daolist = new ArrayList<TodoDto>();
     	TodoDao dto = new TodoDao();
     	PrintWriter out = res.getWriter();
-    	Gson gs = new Gson();
+    	
     	
     	daolist = dto.getTodos();
     	        
 		//< JSP에서 파싱할 수 있도록 스트링으로 변경
 		//<gs.toJson(userList) 하기전에는 객체
+    	Gson gs = new Gson();
    		out.println(gs.toJson(daolist));
 	   	out.close();
    	

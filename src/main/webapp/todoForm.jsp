@@ -23,14 +23,14 @@
             <input type="text" id="name" name="name"maxlength="10" placeholder="홍길동" required> 
             
             <p>우선순위를 선택하세요</p>
-            <input type="radio" name="sequence" value="1"> 1순위
-            <input type="radio" name="sequence" value="2"> 2순위
-            <input type="radio" name="sequence" value="3"> 3순위
+            <input type="radio" name="sequence" value="1" required> 1순위
+            <input type="radio" name="sequence" value="2" required> 2순위
+            <input type="radio" name="sequence" value="3" required> 3순위
 
             <br><br>
 
            
-            <input class="next" type="button" name="pre" value="< 이전">
+            <a href="/Todo/main.jsp"><input class="next" type="button" name="pre" value="< 이전"></a>
             <input class="button" type="submit" value="제출">
             <input class="button" type="reset" value="다시작성">
 
