@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import dto.TodoDto;
 
 public class TodoDao {
-	final static String URL = "jdbc:mysql://localhost:3306/connectdb?autoReconnect=true&useSSL=false";
+	final static String URL = "jdbc:mysql://localhost:3306/todo_db?autoReconnect=true&useSSL=false";
 	final static String ID = "root";
-	final static String PASSWARD = "dkagh1234.";
+	final static String PASSWARD = "Dkagh1234.";
 	public final static int SUCCESS = 1;
 	public final static int FAILED = 0;
 	 
 	
 	public int addTodo(TodoDto data) {
 		int result = 0;
-		String sql = "INSERT INTO todo(title,name,sequence) VALUES(?,?,?)";
+		String sql = "INSERT INTO todo(title,email,sequence) VALUES(?,?,?)";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -27,9 +27,9 @@ public class TodoDao {
 					PreparedStatement ps = JDBCConnection.prepareStatement(sql);
 					){
 				
-				ps.setString(1, data.getTodoTitle());
-				ps.setString(2, data.getTodoName());
-				ps.setInt(3, data.getTodoSequence());
+				ps.setInt(1, data.getId());
+				ps.setString(2, data.getEmail());
+				ps.setInt(3, data.getSequence());
 				
 				result = ps.executeUpdate();
 				
@@ -49,7 +49,7 @@ public class TodoDao {
 		
 		ArrayList<TodoDto> Listdate = new ArrayList<TodoDto>(); 
 		ResultSet rs;
-		String sql = "SELECT id,title,name,sequence,type,regdate FROM todo ORDER BY regdate desc";
+		String sql = "SELECT id,title,email,sequence,type,regdate FROM todo ORDER BY regdate desc";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
@@ -62,12 +62,12 @@ public class TodoDao {
 							
 							TodoDto dto = new TodoDto();
 							
-							dto.setTodoId(rs.getInt(1));
-							dto.setTodoTitle(rs.getString(2));
-							dto.setTodoName(rs.getString(3));
-							dto.setTodoSequence(rs.getInt(4));
-							dto.setTodoType(rs.getString(5));
-							dto.setTodoRegdate(rs.getString(6));
+							dto.setId(rs.getInt(1));
+							dto.setTitle(rs.getString(2));
+							dto.setEmail(rs.getString(3));
+							dto.setSequence(rs.getInt(4));
+							dto.setType(rs.getString(5));
+							dto.setRegdate(rs.getString(6));
 							
 							Listdate.add(dto);
 						}

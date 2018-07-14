@@ -2,54 +2,53 @@ package dto;
 
 public class TodoDto {
 
-	long todoId;
-	String todoTitle;
-	String todoName;
-	int todoSequence; 
-	String todoType;
-	String todoRegdate;
-	
-	public long getTodoId() {
-		return todoId;
+	int id;
+	String title;
+	String email;
+	int sequence; 
+	String type;
+	String regdate;
+	public int getId() {
+		return id;
 	}
-	public void setTodoId(long todoId) {
-		this.todoId = todoId;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getTodoTitle() {
-		return todoTitle;
+	public String getTitle() {
+		return title;
 	}
-	public void setTodoTitle(String todoTitle) {
-		this.todoTitle = todoTitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getTodoName() {
-		return todoName;
+	public String getEmail() {
+		return email;
 	}
-	public void setTodoName(String todoName) {
-		this.todoName = todoName;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public int getTodoSequence() {
-		return todoSequence;
+	public int getSequence() {
+		return sequence;
 	}
-	public void setTodoSequence(int todoSequence) {
-		this.todoSequence = todoSequence;
+	public void setSequence(int sequence) {
+		this.sequence = sequence;
 	}
-	public String getTodoType() {
-		return todoType;
+	public String getType() {
+		return type;
 	}
-	public void setTodoType(String todoType) {
-		this.todoType = todoType;
+	public void setType(String type) {
+		this.type = type;
 	}
-	public String getTodoRegdate() {
-		return todoRegdate;
+	public String getRegdate() {
+		return regdate;
 	}
-	public void setTodoRegdate(String todoRegdate) {
-		this.todoRegdate = todoRegdate;
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
-	
 	@Override
 	public String toString() {
-		return "TodoDto [todoId=" + todoId + ", todoTitle=" + todoTitle + ", todoName=" + todoName + ", todoSequence="
-				+ todoSequence + ", todoType=" + todoType + ", todoRegdate=" + todoRegdate + "]";
+		return "TodoDto [id=" + id + ", title=" + title + ", email=" + email + ", sequence=" + sequence + ", type="
+				+ type + ", regdate=" + regdate + "]";
 	}
+	
 	
 }
