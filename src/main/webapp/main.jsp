@@ -38,9 +38,14 @@
         </article>
     </section>
     
+    
+
 <script>
 window.onload = function(){
 	ajax("http://localhost:8080/Todo/main","GET", "");
+	
+	
+	 
 };
 
 //< 리스트 갱신
@@ -62,35 +67,32 @@ function ajax(url,method,data) {
 			  	for(var i=0; i<resObj.length; i++){
 			  				
 		
-			  		if( resObj[i].todoType == "TODO" ){
+			  		if( resObj[i].type == "todo" ){
 			  			strTodo +="<tr> <td>";
-			  			strTodo +="<p> <b>" + resObj[i].todoTitle + "</b> </p>";
-			  			strTodo +="<span class='subtitle'> 등록날짜:" + resObj[i].todoRegdate + ", "
-				  		       + resObj[i].todoName + ", " 
-				  		       + "우선순위:" + resObj[i].todoSequence + "</span>";
-				  		     strTodo += "<button data-view='" + resObj[i].todoId + "'";
-				  		   strTodo += "data-type='" + resObj[i].todoType + "'";
+			  			strTodo +="<p> <b>" + resObj[i].title + "</b> </p>";
+			  			strTodo +="<span class='subtitle'> 등록날짜:" + resObj[i].regdate + ", "
+				  		        + "우선순위:" + resObj[i].sequence + "</span>";
+				  		     strTodo += "<button data-view='" + resObj[i].id + "'";
+				  		   strTodo += "data-type='" + resObj[i].type + "'";
 				  		 strTodo += "type='button' class='arrowbutton'>→</button>" 
 				  			strTodo += "</td> </tr>";
 						
 			  		}
-					 else if(resObj[i].todoType == "DOING"){
+					 else if(resObj[i].type == "doing"){
 						 strDoing += "<tr> <td>";
-						 strDoing +="<p> <b>" + resObj[i].todoTitle + "</b> </p>";
-						 strDoing +="<span class='subtitle'> 등록날짜:" + resObj[i].todoRegdate + ", "
-					  		       + resObj[i].todoName + ", " 
-					 		       + "우선순위:" + resObj[i].todoSequence + "</span>";
-					 	strDoing += "<button data-view='" + resObj[i].todoId + "'";
-					 		 strDoing += "data-type='" + resObj[i].todoType + "'";
+						 strDoing +="<p> <b>" + resObj[i].title + "</b> </p>";
+						 strDoing +="<span class='subtitle'> 등록날짜:" + resObj[i].regdate + ", "
+					  		      + "우선순위:" + resObj[i].sequence + "</span>";
+					 	strDoing += "<button data-view='" + resObj[i].id + "'";
+					 		 strDoing += "data-type='" + resObj[i].type + "'";
 					 	 strDoing += "type='button' class='arrowbutton'>→</button>"  
 					 	strDoing +="</td> </tr>";		
 					 }
-					 else if( resObj[i].todoType == "DONE"){
+					 else if( resObj[i].type == "done"){
 						 strDone += "<tr> <td>";
-						 strDone +="<p> <b>" + resObj[i].todoTitle + "</b> </p>";
-						 strDone +="<span class='subtitle'> 등록날짜:" + resObj[i].todoRegdate + ", "
-					  		       + resObj[i].todoName + ", " 
-					  		       + "우선순위:" + resObj[i].todoSequence + "</span>";
+						 strDone +="<p> <b>" + resObj[i].title + "</b> </p>";
+						 strDone +="<span class='subtitle'> 등록날짜:" + resObj[i].regdate + ", "
+					  		         + "우선순위:" + resObj[i].sequence + "</span>";
 					  		     strDone +="</td> </tr>";
 						}
 			  		
@@ -102,7 +104,7 @@ function ajax(url,method,data) {
 		 }
 			
 		 var arrowbtnlist = document.getElementsByClassName("arrowbutton");
-	
+			
 		 for(var index=0; index<arrowbtnlist.length; index++)
 			 {
 				arrowbtnlist[index].addEventListener("click",function(e){
@@ -111,6 +113,8 @@ function ajax(url,method,data) {
 				ajax("http://localhost:8080/Todo/todotype","POST", data);
 				},false);
 			 } 
+		
+		 
 		
 
 	 });

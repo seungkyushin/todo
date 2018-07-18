@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,6 +31,9 @@ public class TodoAddServlet extends HttpServlet {
     }
 
     protected void doProcess(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    	
+    	req.setCharacterEncoding("UTF-8");
+    	
     	res.setCharacterEncoding("UTF-8");
     	res.setContentType("text/html");
     	
@@ -37,27 +43,29 @@ public class TodoAddServlet extends HttpServlet {
     		
     	  	String title = (String)req.getParameter("title");
         	String name = (String)req.getParameter("name");
+        	System.out.println("form data : " + title);
+        	System.out.println("form data : " + name);
         	int sequence = Integer.parseInt(req.getParameter("sequence"));
         	
         	
-        	dto.setTodoTitle(title);
-        	dto.setTodoName(name);
-        	dto.setTodoSequence(sequence);
-        	
+        	dto.setTitle(title);
+        	dto.setEmail(name);
+        	dto.setSequence(sequence);
+        	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    		dto.setRegdate(dateFormat.format(new Date()));
+    		dto.setType("todo");
+    		
         	TodoDao dao = new TodoDao();
            	if( dao.addTodo(dto) == TodoDao.SUCCESS )
         	{
-        		req.setAttribute("result", TodoDao.SUCCESS);
-        		RequestDispatcher rd = req.getRequestDispatcher("/main.jsp");
-        		rd.forward(req, res);
+           		res.sendRedirect("./main.jsp");
+       
         		
         	}
         	else
         	{
-        		req.setAttribute("result", TodoDao.FAILED);
-        		RequestDispatcher rd = req.getRequestDispatcher("/todoForm.jsp");
-        		rd.forward(req, res);
-        		
+         		res.sendRedirect("./todoForm.jsp");
+         		
         	}
         	
         	

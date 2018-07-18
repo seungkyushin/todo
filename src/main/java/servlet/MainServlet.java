@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,9 +31,18 @@ public class MainServlet extends HttpServlet {
     	ArrayList<TodoDto> daolist = new ArrayList<TodoDto>();
     	TodoDao dto = new TodoDao();
     	PrintWriter out = res.getWriter();
+    	String email = "";
     	
-    	
-    	daolist = dto.getTodos();
+    	Cookie[] cookies = req.getCookies();
+		for(int i = 0 ; i<cookies.length; i++){            
+		
+			if( "email".equals( cookies[i].getName()) ) {
+				email = cookies[i].getValue();
+			}
+		}
+		
+		
+    	daolist = dto.getTodos(email);
     	        
 		//< JSP에서 파싱할 수 있도록 스트링으로 변경
 		//<gs.toJson(userList) 하기전에는 객체
