@@ -12,7 +12,7 @@ import dto.TodoDto;
 public class TodoDao {
 	final static String URL = "jdbc:mysql://localhost:3306/todo_db?useUnicode=true&characterEncoding=utf8";
 	final static String ID = "root";
-	final static String PASSWARD = "dkagh1234.";
+	final static String PASSWARD = "Dkagh1234.";
 	public final static int SUCCESS = 1;
 	public final static int FAILED = 0;
 	 
