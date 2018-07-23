@@ -42,7 +42,7 @@
 
 <script>
 window.onload = function(){
-	ajax("http://localhost:8080/Todo/main","GET", "");
+	ajax("./Todo/main","GET", "");
 	
 	
 	 
@@ -110,7 +110,7 @@ function ajax(url,method,data) {
 				arrowbtnlist[index].addEventListener("click",function(e){
 				var data = "id=" + this.getAttribute('data-view') + "&";
 				data += "type=" + this.getAttribute('data-type');
-				ajax("http://localhost:8080/Todo/todotype","POST", data);
+				ajax("./Todo/todotype","POST", data);
 				},false);
 			 } 
 		
