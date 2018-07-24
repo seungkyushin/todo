@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="/Todo/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 
 </head>
 
@@ -18,7 +18,7 @@
 
  <header>
         <div class="header">내가 해야 할일</div>
-        <form method="POST" action="/Todo/todoform">
+        <form method="POST" action="./todoform">
         <input type="submit" class="newtodobutton" value="새로운 TODO 등록">
         </form>
         
@@ -42,10 +42,7 @@
 
 <script>
 window.onload = function(){
-	ajax("./Todo/main","GET", "");
-	
-	
-	 
+	ajax("./main","GET", "");
 };
 
 //< 리스트 갱신
@@ -110,7 +107,7 @@ function ajax(url,method,data) {
 				arrowbtnlist[index].addEventListener("click",function(e){
 				var data = "id=" + this.getAttribute('data-view') + "&";
 				data += "type=" + this.getAttribute('data-type');
-				ajax("./Todo/todotype","POST", data);
+				ajax("./todotype","POST", data);
 				},false);
 			 } 
 		

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/Todo/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 <title>Insert title here</title>
 </head>
 <body class="registerpage">
@@ -17,7 +17,7 @@
 
     <section >
         <article >
-            <form method="POST" action="/Todo/todoadd" >
+            <form method="POST" action="./todoadd" >
             <p>어떤 일인가요?</p>
             <input type="text" id="title" name="title" maxlength="24" placeholder="swift 공부하기(24글자)" required> 
 
@@ -34,7 +34,7 @@
             <br><br>
 
            
-            <a href="/Todo/main.jsp"><input class="next" type="button" name="pre" value="< 이전"></a>
+            <a href="./main.jsp"><input class="next" type="button" name="pre" value="< 이전"></a>
             <input class="button" type="submit" value="제출">
             <input class="button" type="reset" value="다시작성">
 
